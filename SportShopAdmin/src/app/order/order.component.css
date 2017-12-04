@@ -1,0 +1,11 @@
+button.set-as-completed-button-layout {
+    float: right;
+}
+
+table.order-layout {
+    width: 100%;
+}
+
+td.title-block {
+    width: 100%;
+}

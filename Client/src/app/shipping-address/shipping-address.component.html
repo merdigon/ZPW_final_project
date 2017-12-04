@@ -1,0 +1,70 @@
+<form>
+  <h2>Odbiorca</h2>
+  <table>
+    <tr>
+      <td>
+        Nazwa odbiorcy:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="customerName" name="customerName" required>
+      </td>
+    </tr>
+  </table>
+  <br/>
+  <table>
+    <tr>
+        <td colspan="2">
+          <h2>Adres</h2>
+        </td>
+    </tr> 
+    <tr>
+      <td>
+        Ulica:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="street" name="street" required>      
+      </td>
+    </tr> 
+    <tr>
+      <td>
+        Numer budynku:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="buildingNumber" name="buildingNumber" required>      
+      </td>
+    </tr> 
+    <tr>
+      <td>
+        Numer mieszkania:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="flatNumber" name="flatNumber">      
+      </td>
+    </tr> 
+    <tr>
+      <td>
+        Miasto:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="city" name="city" required>      
+      </td>
+    </tr> 
+    <tr>
+      <td>
+        Kod pocztowy:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="postalCode" name="postalCode" required>      
+      </td>
+    </tr> 
+    <tr>
+      <td>
+        Kraj:
+      </td>
+      <td>
+        <input type="text" [(ngModel)]="country" name="country" required>      
+      </td>
+    </tr> 
+  </table>
+  <input type="submit" class="btn btn-primary" (click)="submitOrder()" value="Zakoncz zamówienie">
+</form>

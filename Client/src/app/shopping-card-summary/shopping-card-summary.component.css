@@ -1,0 +1,15 @@
+div.shopping-card-summary {
+    float: right;
+}
+
+table.log-in-table {
+    width: 100%;
+}
+
+table.log-in-table tr td {
+    width: 50%;
+}
+
+a.card-link {
+    margin-right: 10px;
+}

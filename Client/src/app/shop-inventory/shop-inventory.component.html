@@ -1,0 +1,21 @@
+<div class="row main-page">
+    <div class="col-md-3">
+      <div *ngFor="let category of availableCategories">
+        <app-item-category [itemCategory]="category" (notifyStateChange)="categoryStateChanged($event)"></app-item-category>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <input type="text" class="search-bar" [(ngModel)]="itemNameFilteringPhase">
+      <!-- <ng2-slider min = "0" max = "150">        
+      </ng2-slider> -->
+      <p class="noItemsToShowInfo" *ngIf="filterItems().length === 0">Brak towarów do wyświetlenia</p>
+      <div *ngFor="let item of filterItems()">
+        <app-shop-item [shopItem]="item"></app-shop-item>
+      </div>
+      <div class="pagination-parent">
+        <div id="items-pagination">
+          <ngb-pagination  [collectionSize]="maxNumberOfPages" [(page)]="currentPage" aria-label="Default pagination"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+</div>

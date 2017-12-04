@@ -1,0 +1,20 @@
+  <td>
+    {{shoppingOrder.quantity}}
+  </td>
+  <td>
+    {{shoppingOrder.item.name}} 
+  </td>
+  <td>
+    {{shoppingOrder.price | currency:'EUR':'symbol'}}
+  </td>
+  <td>
+    {{(shoppingOrder.price * shoppingOrder.quantity) | currency:'EUR':'symbol'}}
+  </td>
+  <td>
+    <button class="btn btn-primary" (click)="removeItem()">
+        <i class="fa fa-minus" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-primary" (click)="removeItemCompletly()">
+      <i class="fa fa-times" aria-hidden="true"></i>        
+    </button>
+  </td>

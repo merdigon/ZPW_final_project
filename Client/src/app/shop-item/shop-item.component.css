@@ -1,0 +1,33 @@
+span.sale-span {
+    background-color: yellow;
+}
+
+span.price-on-sale {
+    color: red;
+    text-decoration: line-through;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+table {
+    width: 100%;
+}
+
+table tr td {
+    vertical-align: top;
+}
+
+table tr td.title-td {
+    height: auto
+}
+
+table tr td.not-fill {
+    white-space: nowrap;
+}
+
+table tr td:not(.not-fill) {
+    width: 99%;
+}

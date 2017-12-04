@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">{{productData.name}}</h4>
+    <p class="card-text">{{productData.description}}</p>
+    <p class="card-text item-categories">{{productData.categories.join(", ")}}</p>
+    <button type="submit" class="btn btn-info" (click)="editProduct()">
+        <i class="fa fa-pencil" aria-hidden="true"></i> Edytuj
+    </button>
+    <button class="btn btn-danger" (click)="deleteProduct()">
+        <i class="fa fa-trash" aria-hidden="true"></i> Usuń
+    </button>
+    <button class="btn btn-warning" (click)="showSaleModal(content)">
+      <i class="fa fa-money" aria-hidden="true"></i> Promocja
+  </button>  
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Ustawianie promocji</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form>
+    <div class="modal-body">
+      <table>
+        <tr>
+          <td>Ile procent:</td>
+          <td>
+            <input type="number" [(ngModel)]="salePercent" name="salePercent" required>%
+          </td>
+        </tr>
+        <tr>
+          <td>Ile minut:</td>
+          <td>
+            <input type="number" [(ngModel)]="saleMinutes" name="saleMinutes" required>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary log-in-btn" (click)="setSale()">
+          <i class="fa fa-check" aria-hidden="true"></i> Ustaw
+        </button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Anuluj</button>
+    </div>
+  </form>
+</ng-template>

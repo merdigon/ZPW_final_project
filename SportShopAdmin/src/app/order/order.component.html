@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-block">
+    <table class="order-layout">
+      <tr>
+        <td (click)="onCardClick()" class="title-block">
+          <h4 class="card-title">{{orderData.customerName}}</h4>
+        </td>
+        <td>
+          <button *ngIf="!orderData.completed" class="set-as-completed-button-layout btn btn-info" (click)="setAsCompleted()">
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            Oznacz jako zrealizowane
+          </button>
+        </td>
+      </tr>
+    </table>
+    
+    <div [ngClass]="{'d-none': detailsHidden}">
+      Pozycje:
+      <ul>
+        <li *ngFor="let orderPos of orderData.positions">
+          <p>{{orderPos.shopItemName}}, Sztuk: {{orderPos.quantity}}, za cenę {{orderPos.quantity * orderPos.price | currency:'EUR':'symbol'}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

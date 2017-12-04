@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-block">
+    <table >
+      <tr>
+        <td rowspan="3" class="not-fill">
+          <img [src]="shopItem.imageSrc">
+        </td>
+        <td class="title-td">
+          <h1 class="card-title">{{shopItem.name}}</h1>
+        </td>
+        <td class="not-fill">
+          <span *ngIf="shopItem.sale" class="sale-span">Promocja: {{shopItem.sale}}%</span>
+        </td>        
+      </tr>
+      <tr>
+        <td rowspan="2">
+          {{shopItem.description}}
+        </td>
+        <td class="not-fill">
+          <div class="card-text">Cena: 
+            <span [ngClass]="isOnSaleCssClass()">{{shopItem.price | currency:'EUR':'symbol'}}</span>
+            <span *ngIf="isOnSale()">{{((shopItem.price * (100 - shopItem.sale)) / 100) | currency:'EUR':'symbol'}}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="not-fill">
+          <button class="btn" (click)="addItemToCard()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="btn" (click)="openInfoModal(content)"><i class="fa fa-info" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <h1 class="card-title">{{shopItem.name}}</h1>
+  </div>
+  <div class="modal-body">
+    <table >
+      <tr>
+        <td class="not-fill">
+          <img [src]="shopItem.imageSrc">
+        </td>
+        <td>
+          {{shopItem.description}}
+        </td>     
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Anuluj</button>
+  </div>
+</ng-template>

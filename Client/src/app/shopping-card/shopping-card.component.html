@@ -1,0 +1,57 @@
+<div class="shopping-card-items">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Twój koszyk na zakupy</h3>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>
+              <b>Ilość:</b>
+            </td>
+            <td>
+              <b>Produkt:</b> 
+              </td>
+            <td>
+              <b>Cena:</b>
+            </td>
+            <td>
+              <b>Wartość:</b>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </thead>
+        <tbody *ngIf="shoppingCard.cardPositions.length > 0">
+          <tr *ngFor="let shoppingOrder of shoppingCard.cardPositions"
+            app-shopping-card-item [shoppingOrder]="shoppingOrder">
+        </tbody>
+        <tbody *ngIf="shoppingCard.cardPositions.length === 0">
+          <tr>
+            <td colspan="5"><i>Brak towarów w Twoim koszyku.</i></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <b>Wartość sumaryczna:</b>
+            </td>
+            <td>
+              <b>{{shoppingCard.getTotalValue() | currency:'EUR':'symbol'}}</b> 
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <a routerLink="/shop-inventory" routerLinkActive="active">
+        <button class="btn btn-primary">Kontynuuj zakupy</button>
+      </a>
+      <a routerLink="/shipping-address" routerLinkActive="active">
+        <button class="btn btn-primary">Przejdź do kasy</button>
+      </a>
+    </div>
+  </div>
+</div>

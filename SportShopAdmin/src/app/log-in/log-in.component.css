@@ -1,0 +1,20 @@
+p.wrongLoggingError {
+    color: red
+}
+
+div.log-in {
+    padding: 70px;
+}
+
+button.log-in-btn {
+    float: right;
+}
+
+table {
+    width: 100%;    
+    table-layout: auto;
+}
+
+input {
+    width: 100%
+}

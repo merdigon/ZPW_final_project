@@ -1,0 +1,12 @@
+button.categoryButtonActive {
+    background-color: lightblue;    
+}
+
+button.cattegoryButtonUnactive {
+    background-color: gray;
+}
+
+button.category-btn {
+    margin-top: 10px;
+    width: 100%;
+}

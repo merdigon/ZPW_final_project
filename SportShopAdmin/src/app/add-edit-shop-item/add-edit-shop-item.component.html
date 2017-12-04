@@ -1,0 +1,55 @@
+<form>
+  <table class="product-table">
+    <tr>
+      <td>
+        Nazwa:
+      </td>
+      <td class="product-input">
+        <input class="product-input" type="text" name="name" [(ngModel)]="product.name" required>
+      </td>
+      <td rowspan=4>
+        <img class="product-image" [src]="product.imageSrc">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Opis:
+      </td>
+      <td class="product-input">
+        <input class="product-input" type="text" name="description" [(ngModel)]="product.description" required>
+      </td> 
+    </tr>
+    <tr>
+      <td>
+        Ścieżka do zdjęcia:
+      </td>
+      <td class="product-input">
+        <input class="product-input" type="url" name="imageUrl" [(ngModel)]="product.imageSrc">
+      </td> 
+    </tr>
+    <tr>
+      <td>
+        Cena:
+      </td> 
+      <td>
+        <input class="product-input" type="number" name="price" [(ngModel)]="product.price" required>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=3>
+        <span *ngFor="let category of categories">{{category}},</span>
+        <!-- (click)="deleteCategory(category)">{{category}}, </span> <br/>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" *ngFor="let category of possibleCategories">{{category}}</a>
+        </div> -->
+      </td>
+    </tr>
+    <tr>
+      <td colspan=3>
+        <button class="btn btn-primary" (click)="onSaveClick()">
+          <i class="fa fa-floppy-o" aria-hidden="true"></i> Zapisz
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>

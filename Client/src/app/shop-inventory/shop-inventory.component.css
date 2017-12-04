@@ -1,0 +1,18 @@
+div.main-page {
+    margin-top: 15px;
+}
+
+input.search-bar{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#items-pagination {
+    
+    margin-top: 7px;
+    display: inline-block;
+}
+
+div.pagination-parent {
+    text-align: center;
+}

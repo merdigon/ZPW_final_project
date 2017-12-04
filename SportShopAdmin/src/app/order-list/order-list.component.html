@@ -1,0 +1,5 @@
+<div class="row" *ngFor="let order of orders">
+    <div class="col-md-12">
+      <app-order [orderData]="order" (completedClickEvent)="setOrderAsCompleted($event)"></app-order>
+    </div>
+  </div>

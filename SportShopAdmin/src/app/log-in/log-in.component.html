@@ -1,0 +1,20 @@
+<div class="log-in">
+  <p *ngIf="wrongLoginOrPasswordMessage" class="wrongLoggingError">Podano zły login lub hasło!</p>
+  <form>
+    <table>
+      <tr>
+        <td>Login:</td>
+        <td><input type="text" [(ngModel)]="login" name="login"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" [(ngModel)]="password" name="password"></td>
+      </tr>
+      <td colspan=2>
+        <button class="btn btn-primary log-in-btn" (click)="logIn()">
+            <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się
+        </button>
+      </td>
+    </table>
+  </form>
+</div>

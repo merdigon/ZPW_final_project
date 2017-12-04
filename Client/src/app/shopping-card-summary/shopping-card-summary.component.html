@@ -1,0 +1,133 @@
+<div class="shopping-card-summary">
+    <span class="shopping-card-summary-value"> Koszyk: {{numberOfProducts}} {{getProductNumeral()}}, {{totalPrice | currency:'EUR':'symbol'}}</span>
+    <a routerLink="/shopping-card" routerLinkActive="active" class="card-link">
+        <button class="btn btn-primary">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Koszyk
+        </button>
+    </a>
+    <span *ngIf="user.id">
+        Witaj, {{user.login}}!
+        <button class="btn btn-primary log-in-btn" (click)="logOut()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Wyloguj się
+        </button>
+    </span>
+    <span *ngIf="!user.id">
+            Brak konta
+            <button type="button" class="btn btn-info" (click)="openLogInModal(content)">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się
+            </button>
+            <button class="btn btn-primary log-in-btn" (click)="openSignInModal(signincontent)">
+                <i class="fa fa-user" aria-hidden="true"></i> Zarejestruj się
+            </button>
+    </span>
+    
+</div>
+
+<!-- modalka do logowania -->
+<ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Logowanie</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p *ngIf="wrongLoginOrPasswordMessage" class="wrongLoggingError">Podano zły login lub hasło!</p>
+            <form>
+                <table class="log-in-table">
+                    <tr>
+                        <td>Login:</td>
+                        <td><input type="text" [(ngModel)]="login" name="login"></td>
+                    </tr>
+                    <tr>
+                        <td>Hasło:</td>
+                        <td><input type="password" [(ngModel)]="password" name="password"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary log-in-btn" (click)="logIn()">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się
+            </button>
+            <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Anuluj</button>
+        </div>
+</ng-template>
+
+<!-- Modalka do rejestracji -->
+<ng-template #signincontent let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Zarejestruj się</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <table class="log-in-table">
+                    <tr>
+                        <td>Login:</td>
+                        <td><input type="text" [(ngModel)]="signInLogin" name="sign-in-login"></td>
+                    </tr>
+                    <tr>
+                        <td>Hasło:</td>
+                        <td><input type="password" [(ngModel)]="signInPassword" name="sign-in-password"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary log-in-btn" (click)="signIn()">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Zarejestruj się
+            </button>
+            <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Anuluj</button>
+        </div>
+</ng-template>
+
+
+<!-- <div class="modal fade" id="log-in-modal-window" role="dialog">
+    <div class="modal-dialog">
+        Siemka
+        <p *ngIf="wrongLoginOrPasswordMessage" class="wrongLoggingError">Podano zły login lub hasło!</p>
+        <form>
+          <table>
+            <tr>
+              <td>Login:</td>
+              <td><input type="text" [(ngModel)]="login" name="login"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" [(ngModel)]="password" name="password"></td>
+            </tr>
+            <td colspan=2>
+              <button class="btn btn-primary log-in-btn" (click)="logIn()">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się
+              </button>
+            </td>
+          </table>
+        </form>
+    </div>
+</div> -->
+
+<!-- <div class="modal fade" id="sign-in-modal-window">
+    <div class="sign-in-modal-window">
+        <p *ngIf="wrongLoginOrPasswordMessage" class="wrongLoggingError">Podano zły login lub hasło!</p>
+        <form>
+          <table>
+            <tr>
+              <td>Login:</td>
+              <td><input type="text" [(ngModel)]="login" name="login"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" [(ngModel)]="password" name="password"></td>
+            </tr>
+            <td colspan=2>
+              <button class="btn btn-primary log-in-btn" (click)="logIn()">
+                  <i class="fa fa-sign-in" aria-hidden="true"></i> Zaloguj się
+              </button>
+            </td>
+          </table>
+        </form> 
+    </div>
+</div> -->
